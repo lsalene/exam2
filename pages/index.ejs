@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head'); %>
+</head>
+<style>
+    column {
+        float: left;
+        width: 50%;
+    }
+
+    /* Clear floats after the columns */
+    row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    label {
+        width: 200px;
+        display: inline-block;
+    }
+</style>
+<body class="container">
+
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+            <h1>Personal Data</h1>
+        <!--this is straight from the UI template I just played around with 
+            the variables to determine the variables i needed to find-->
+        <div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="well">
+                        <p><strong>First Name: </strong>
+                            <%= locals.user.results[0].name.first %>
+                        </p>
+                        <p><strong>Last Name: </strong>
+                            <%= locals.user.results[0].name.last %>
+                        </p>
+                        <p><strong>Local Time: </strong>
+                            <%= locals.user.results[0].location.timezone.offset %>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="well">
+                        <p><strong>Street No: </strong>
+                            <%= locals.user.results[0].location.street.number %>
+                        </p>
+                        <p><strong>Street Name: </strong>
+                            <%= locals.user.results[0].location.street.name %>
+                        </p>
+                        <p><strong>Zip Code: </strong>
+                            <%= locals.user.results[0].location.postcode %>
+                        </p>
+                        <p><strong>City: </strong>
+                            <%= locals.user.results[0].location.city %>
+                        </p>
+                        <p><strong>State: </strong>
+                            <%= locals.user.results[0].location.state %>
+                        </p>
+                        <p><strong>Country: </strong>
+                            <%= locals.user.results[0].location.country %>
+                        </p>
+                    </div>
+                </div>
+        </div>
+        </div>
+    </main>
+
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+
+</body>
+</html>
